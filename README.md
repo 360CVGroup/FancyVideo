@@ -1,2 +1,1 @@
-# FancyVideo
-This is the official reproduction of FancyVideo.
+# This is the project page of FancyVideo

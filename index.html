@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">
+.anticon {
+  display: inline-block;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -0.125em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.anticon > * {
+  line-height: 1;
+}
+
+.col {
+  float: left;
+  width: 24.9%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.col2 {
+  float: left;
+  width: 49.9%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+
+.anticon svg {
+  display: inline-block;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.content {
+  width: 1000px;
+  padding: 25px 50px;
+  margin: 25px auto;
+  background-color: white;
+  box-shadow: 0px 0px 10px #999;
+  border-radius: 15px;
+  font-family: "Google Sans";
+}
+.anticon::before {
+  display: none;
+}
+
+.anticon .anticon-icon {
+  display: block;
+}
+
+.anticon[tabindex] {
+  cursor: pointer;
+}
+
+.anticon-spin::before,
+.anticon-spin {
+  display: inline-block;
+  -webkit-animation: loadingCircle 1s infinite linear;
+  animation: loadingCircle 1s infinite linear;
+}
+.rotated-text {
+    transform: rotate(270deg); /* 旋转90度 */
+  }
+.rotated-text-container {
+transform: rotate(-90deg); /* 旋转45度 */
+transform-origin: right top;
+margin-left: -400px; /* 底部边距 */
+margin-top: 70px; /* 底部边距 */
+}
+.rotated-text-container span {
+transform: rotate(90deg); /* 文本与容器旋转方向相反 */
+margin-top: 100px; /* 底部边距 */
+margin-left: 100px; /* 底部边距 */
+}
+.container_motion {
+    position: relative; /* 绝对定位 */
+    top: 0px; /* 距离窗口顶部50px */
+    left: 300px;
+    width: 1300px;
+    height: 300px;
+    display: flex; /* 两端对齐 */
+
+  }
+.video-container {
+    width: 300px; /* 视频容器的宽度 */
+    margin-right: 1px; /* 右侧边距 */
+    margin: 1px
+}
+.video-container video {
+    width: 100%; /* 视频宽度100% */
+    margin: 1px
+}
+.div-item {
+    display: inline-block; /* 使用内联块显示 */
+    width: 300px; /* 设置每个div的宽度 */
+    height: 300px; /* 设置每个div的高度 */
+    margin-right: 10px; /* 设置div之间的间隔 */
+  }
+.div-item-text {
+display: inline-block; /* 使用内联块显示 */
+width: 30px; /* 设置每个div的宽度 */
+height: 300px; /* 设置每个div的高度 */
+margin-right: 10px; /* 设置div之间的间隔 */
+}
+.div-item-768-1024 {
+display: inline-block; /* 使用内联块显示 */
+width: 400px; /* 设置每个div的宽度 */
+height: 300px; /* 设置每个div的高度 */
+margin-right: 10px; /* 设置div之间的间隔 */
+}
+.div-item-1024-768 {
+display: inline-block; /* 使用内联块显示 */
+width: 300px; /* 设置每个div的宽度 */
+height: 400px; /* 设置每个div的高度 */
+margin-right: 10px; /* 设置div之间的间隔 */
+}
+.div-item-1024-1024 {
+display: inline-block; /* 使用内联块显示 */
+width: 400px; /* 设置每个div的宽度 */
+height: 400px; /* 设置每个div的高度 */
+margin-right: 10px; /* 设置div之间的间隔 */
+}
+.video-container {
+    position: relative;
+    margin: 0 auto;
+}
+
+@-webkit-keyframes loadingCircle {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadingCircle {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+</style>
+    <!-- <script>  bulmaCarousel.attach('#sliderimg', {
+      slidesToScroll: 1,
+      slidesToShow: 3,
+      infinite: true,
+    });</script> -->
+    
+      <script defer src="MagicStory_files/scripts.js"></script>
+    <meta name="description" content="FancyVideo: Towards Dynamic and Consistent Video Generation via Cross-frame Textual Guidance">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FancyVideo: Towards Dynamic and Consistent Video Generation via Cross-frame Textual Guidance</title>
+    <style type="text/css">:host,:root{--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1 "Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1 "Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1 "Font Awesome 6 Duotone";--fa-font-sharp-solid:normal 900 1em/1 "Font Awesome 6 Sharp";--fa-font-sharp-regular:normal 400 1em/1 "Font Awesome 6 Sharp";--fa-font-sharp-light:normal 300 1em/1 "Font Awesome 6 Sharp";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-2xs{vertical-align:.1em}.svg-inline--fa.fa-xs{vertical-align:0}.svg-inline--fa.fa-sm{vertical-align:-.0714285705em}.svg-inline--fa.fa-lg{vertical-align:-.2em}.svg-inline--fa.fa-xl{vertical-align:-.25em}.svg-inline--fa.fa-2xl{vertical-align:-.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-li{width:var(--fa-li-width,2em);top:.25em}.svg-inline--fa.fa-fw{width:var(--fa-fw-width,1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color,#ff253a);border-radius:var(--fa-counter-border-radius,1em);box-sizing:border-box;color:var(--fa-inverse,#fff);line-height:var(--fa-counter-line-height,1);max-width:var(--fa-counter-max-width,5em);min-width:var(--fa-counter-min-width,1.5em);overflow:hidden;padding:var(--fa-counter-padding,.25em .5em);right:var(--fa-right,0);text-overflow:ellipsis;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-counter-scale,.25));transform:scale(var(--fa-counter-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom,0);right:var(--fa-right,0);top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom,0);left:var(--fa-left,0);right:auto;top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{top:var(--fa-top,0);right:var(--fa-right,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:var(--fa-left,0);right:auto;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top left;transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:.625em;line-height:.1em;vertical-align:.225em}.fa-xs{font-size:.75em;line-height:.0833333337em;vertical-align:.125em}.fa-sm{font-size:.875em;line-height:.0714285718em;vertical-align:.0535714295em}.fa-lg{font-size:1.25em;line-height:.05em;vertical-align:-.075em}.fa-xl{font-size:1.5em;line-height:.0416666682em;vertical-align:-.125em}.fa-2xl{font-size:2em;line-height:.03125em;vertical-align:-.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(var(--fa-li-width,2em) * -1);position:absolute;text-align:center;width:var(--fa-li-width,2em);line-height:inherit}.fa-border{border-color:var(--fa-border-color,#eee);border-radius:var(--fa-border-radius,.1em);border-style:var(--fa-border-style,solid);border-width:var(--fa-border-width,.08em);padding:var(--fa-border-padding,.2em .25em .15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin,.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin,.3em)}.fa-beat{-webkit-animation-name:fa-beat;animation-name:fa-beat;-webkit-animation-delay:var(--fa-animation-delay,0s);animation-delay:var(--fa-animation-delay,0s);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-bounce{-webkit-animation-name:fa-bounce;animation-name:fa-bounce;-webkit-animation-delay:var(--fa-animation-delay,0s);animation-delay:var(--fa-animation-delay,0s);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1))}.fa-fade{-webkit-animation-name:fa-fade;animation-name:fa-fade;-webkit-animation-delay:var(--fa-animation-delay,0s);animation-delay:var(--fa-animation-delay,0s);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-beat-fade{-webkit-animation-name:fa-beat-fade;animation-name:fa-beat-fade;-webkit-animation-delay:var(--fa-animation-delay,0s);animation-delay:var(--fa-animation-delay,0s);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-flip{-webkit-animation-name:fa-flip;animation-name:fa-flip;-webkit-animation-delay:var(--fa-animation-delay,0s);animation-delay:var(--fa-animation-delay,0s);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-shake{-webkit-animation-name:fa-shake;animation-name:fa-shake;-webkit-animation-delay:var(--fa-animation-delay,0s);animation-delay:var(--fa-animation-delay,0s);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin{-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-delay:var(--fa-animation-delay,0s);animation-delay:var(--fa-animation-delay,0s);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,2s);animation-duration:var(--fa-animation-duration,2s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-timing-function:var(--fa-animation-timing,steps(8));animation-timing-function:var(--fa-animation-timing,steps(8))}@media (prefers-reduced-motion:reduce){.fa-beat,.fa-beat-fade,.fa-bounce,.fa-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{-webkit-animation-delay:-1ms;animation-delay:-1ms;-webkit-animation-duration:1ms;animation-duration:1ms;-webkit-animation-iteration-count:1;animation-iteration-count:1;-webkit-transition-delay:0s;transition-delay:0s;-webkit-transition-duration:0s;transition-duration:0s}}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}.fa-rotate-by{-webkit-transform:rotate(var(--fa-rotate-angle,none));transform:rotate(var(--fa-rotate-angle,none))}.fa-stack{display:inline-block;vertical-align:middle;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index,auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse,#fff)}.fa-sr-only,.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.fa-sr-only-focusable:not(:focus),.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fa-duotone.fa-inverse,.fad.fa-inverse{color:var(--fa-inverse,#fff)}</style>
+    <link rel="icon" type="image/png" href="https:/.png">
+    <link rel="stylesheet" href="./MagicStory_files/own.min.css">
+    <link rel="stylesheet" href="./MagicStory_files/custom.min.css">
+    <link href="./MagicStory_files/css" rel="stylesheet">
+    <link rel="stylesheet" href="./MagicStory_files/bulma.min.css">
+    <link href="./MagicStory_files/bulma-carousel.min.css" rel="stylesheet">
+    <script defer="" src="./MagicStory_files/bulma-carousel.min.js"></script>
+    <script defer="" src="./MagicStory_files/all.min.js"></script>
+    <link rel="stylesheet" href="./MagicStory_files/all.min.css">
+    <link rel="stylesheet" href="./MagicStory_files/index.min.css">
+    <script defer="" src="./MagicStory_files/index.min.js"></script>
+<style type="text/css">#_copy{align-items:center;background:#4494d5;border-radius:3px;color:#fff;cursor:pointer;display:flex;font-size:13px;height:30px;justify-content:center;position:absolute;width:60px;z-index:1000}#select-tooltip,#sfModal,.modal-backdrop,div[id^=reader-helper]{display:none!important}.modal-open{overflow:auto!important}._sf_adjust_body{padding-right:0!important}.super_copy_btns_div{position:fixed;width:154px;left:10px;top:45%;background:#e7f1ff;border:2px solid #4595d5;font-weight:600;border-radius:2px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;z-index:5000}.super_copy_btns_logo{width:100%;background:#4595d5;text-align:center;font-size:12px;color:#e7f1ff;line-height:30px;height:30px}.super_copy_btns_btn{display:block;width:128px;height:28px;background:#7f5711;border-radius:4px;color:#fff;font-size:12px;border:0;outline:0;margin:8px auto;font-weight:700;cursor:pointer;opacity:.9}.super_copy_btns_btn:hover{opacity:.8}.super_copy_btns_btn:active{opacity:1}</style></head>
+
+<body data-new-gr-c-s-check-loaded="14.1165.0" data-gr-ext-installed="" class="vsc-initialized">
+
+
+<section class="hero">
+    <div class="hero-body-background">
+        <div class="hero-body-background-div"></div>
+        <div style="text-align: center; z-index: 1; margin-top: 60px">
+            <!-- <p class="sansfont acmefont shadowtext make-font" style="color: #FFFFFF; display: inline; margin-right: 20pt; font-weight: 600">Make</p>
+            <p class="word1 shakefont shadowtext" style="margin-right: -10px; color: #FFC5C5;font-family:PressStart2P">P</p>
+            <p class="word2 shakefont shadowtext" style="margin-right: -2px; color: #ecd1aa;font-family:PressStart2P">I</p>
+            <p class="word3 shakefont shadowtext" style="margin-right: -2px; color: #fe8e8e;font-family:PressStart2P">X</p>
+            <p class="word4 shakefont shadowtext" style="margin-right: -10px; color: #98d4e6;font-family:PressStart2P">E</p>
+            <p class="word5 shakefont shadowtext" style="margin-right: -10px; color: #c8a4dd;font-family:PressStart2P">L</p>
+            <p class="word6 shakefont shadowtext" style="color: #9fd8ca;font-family:PressStart2P">S</p>
+            <p class="sansfont acmefont shadowtext make-font" style="color: #FFFFFF; display: inline; margin-left: 15pt; font-weight: 600">Dance</p> -->
+
+            <p class="author-block sansfont" style="font-family:'Acme'; color:#000000; font-weight: bold; font-size: 56px; word-spacing: -5px">
+              FancyVideo: Towards Dynamic and Consistent <br>  Video Generation via Cross-frame Textual Guidance
+            </p>
+        </div>
+        <div class="columns is-centered" style="z-index: 1; margin-top: -80px">
+            <div class="column has-text-centered ">
+                <div style="color: #595959;font-family:DMSerifText;margin-bottom: 4pt;font-weight: bold;font-size: 20px;">
+                    <span>Jiasong Feng<sup>1*</sup>&nbsp;&nbsp;&nbsp;</span>
+                    <span>Ao Ma<sup>1</sup><sup>*</sup>&nbsp;&nbsp;&nbsp;</span>
+                    <span>Jing Wang<sup>1,</sup><sup>2</sup><sup>*</sup>&nbsp;&nbsp;&nbsp;</span>
+                    <span>Bo Cheng<sup>1</sup>&nbsp;&nbsp;&nbsp;</span>
+                    <span>Xiaodan Liang<sup>2</sup>&nbsp;&nbsp;&nbsp;</span>
+                    <span>Dawei Leng<sup>1</sup><sup>†</sup>&nbsp;&nbsp;&nbsp;</span>
+                    <span>Yuhui Yin<sup>1</sup>&nbsp;&nbsp;&nbsp;</span>
+                </div>
+
+                <div style="color: #595959;font-family:DMSerifText;margin-bottom: 4pt;font-weight: bold;font-size: 20px;">
+                 <span >360 AI Research<sup>1</sup>&nbsp;&nbsp;</span>
+                  <span >Sun Yat-sen University<sup>2</sup>&nbsp;&nbsp;</span>
+
+                </div>
+                <div style="text-align: center;">
+                  <span style="color: #595959;font-family:DMSerifText;margin-bottom: 4pt;font-weight: bold;font-size: 16px;"><sup>*</sup> Equal Contribution  &nbsp;&nbsp;&nbsp;&nbsp;  <sup>†</sup> Corresponding Authors</span>
+                </div>
+
+                <div class="column has-text-centered" style="font-family:DMSerifText">
+                    <div class="publication-links">
+                        <span class="link-block">
+                            <a href="" class="external-link button is-normal is-rounded light-btn btn-font">
+                            <span class="icon">
+                                <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V304H176c-35.3 0-64 28.7-64 64V512H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM176 352h32c30.9 0 56 25.1 56 56s-25.1 56-56 56H192v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V448 368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H192v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H304c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H320v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V432 368z"></path></svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+                            </span>
+                            <span>Paper</span>
+                            </a>
+                        </span>
+
+                        <span class="link-block">
+                            <a href="" class="external-link button is-normal is-rounded light-btn btn-font">
+                            <span class="icon">
+                              <svg class="svg-inline--fa fa-file-pdf" aria-hidden="true" version="1.1" viewBox="0 0 16 16" data-prefix="fas" data-icon="quote-left" role="img" xmlns="http://www.w3.org/2000/svg"  data-fa-i2svg=""><path fill="currentColor" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+                            </span>
+                            <span>Github</span>
+                            </a>
+                        </span>
+
+                        <span class="link-block">
+                            <a href="" class="external-link button is-normal is-rounded light-btn btn-font">
+                            <span class="icon">
+                                <svg class="svg-inline--fa fa-desktop" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="desktop" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64H240l-10.7 32H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H346.7L336 416H512c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM512 64V288H64V64H512z"></path></svg><!-- <i class="fa-solid fa-desktop"></i> Font Awesome fontawesome.com -->
+                            </span>
+                            <span>Demo (Coming soon)</span>
+                            </a>
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+</section>
+
+
+<section class="hero">
+    <div class="hero-body-subtitle"  style="display: block">
+        <div class="columns is-centered has-text-centered">
+            <div class="container is-max-maxwidth">
+                <div style="font-family:'Acme';color:#595959;font-weight: bold; font-size: 40px;">
+                    Abstract
+                </div>
+                <div style="width:800px; margin: 0 auto; text-align: justify;">
+                    <p>
+                    Synthesizing motion-rich and temporally consistent videos remains a challenge in artificial intelligence, especially when dealing with extended durations. Existing text-to-video (T2V) models commonly employ spatial cross-attention for text control, equivalently guiding different frame generations without frame-specific textual guidance. 
+                    Thus, the model's capacity to comprehend the temporal logic conveyed in prompts and generate videos with coherent motion is restricted.
+                    To tackle this limitation, we introduce <strong>FancyVideo</strong>, an innovative video generator that improves the existing text-control mechanism with the well-designed <strong>C</strong>ross-frame <strong>T</strong>extual <strong>G</strong>uidance <strong>M</strong>odule (CTGM).
+                    Specifically, CTGM incorporates the Temporal Information Injector (TII), Temporal Affinity Refiner (TAR), and Temporal Feature Booster (TFB) at the beginning, middle, and end of cross-attention, respectively, to achieve frame-specific textual guidance. Firstly, TII injects frame-specific information from latent features into text conditions, thereby obtaining cross-frame textual conditions. Then, TAR refines the correlation matrix between cross-frame textual conditions and latent features along the time dimension. Lastly, TFB boosts the temporal consistency of latent features.
+                    Extensive experiments comprising both quantitative and qualitative evaluations demonstrate the effectiveness of FancyVideo. Our approach achieves state-of-the-art T2V generation results on the EvalCrafter benchmark and facilitates the synthesis of dynamic and consistent videos.</div>
+                    </p>
+                </div>
+        </div>
+      </div>
+  </section>
+
+<section class="section">
+    <div class="columns is-centered has-text-centered"  style="display: block">
+      <div class="container is-max-maxwidth">
+          <div style="font-family:'Acme';color:#595959;font-weight: bold;font-size: 40px;">
+            Method
+          </div>
+          <div class="note-font" style=" font-style: italic;">
+            <img src="MagicStory_files\pipeline_new-1.png" style="width: 900px; height: 500px;" alt="MY ALT TEXT"/>
+          </div>
+      </div>
+    </div>
+    <hr>
+</section>
+
+<section class="hero">
+  <div class="hero-body-subtitle"  style="display: block">
+      <div class="columns is-centered has-text-centered">
+          <div class="container is-max-maxwidth">
+              <div style="font-family:'Acme';color:#595959;font-weight: bold; font-size: 40px;">
+                    Multiple Resolution Video Generation
+              </div>
+          </div>
+      </div>
+      <hr>
+      <div style="text-align: center;">
+        <p style="font-size: 30px; font-weight: bold;"> 768 &times; 768</p>
+        <div class="container">
+            <div class="div-item">
+                <div class='card card-1' >
+                    <div class='card-image'>
+                        <video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\768_768\prompt_23_36311.mp4' type='video/mp4'></video>
+                    </div>
+                    <div class='card-content'>
+                        <div>A golden retriever has a picnic on a beautiful tropical beach at sunset.</div>
+                    </div>
+                </div> 
+            </div>
+            <div class="div-item">
+                <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\768_768\prompt_26_1024.mp4' type='video/mp4'></video></div><div class='card-content'><div >A happy elephant wearing a birthday hat walking under the sea.</div></div></div>
+            </div>
+            <div class="div-item">
+                <div class='card card-1' ><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\768_768\prompt_32_1024.mp4' type='video/mp4'></video></div><div class='card-content'><div>A panda standing on a surfboard in the ocean in sunset, 4k, high resolution.</div></div></div>
+            </div>
+            <div class="div-item">
+                <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\768_768\prompt_36_155.mp4' type='video/mp4'></video></div><div class='card-content'><div>Red sports car coming around a bend in a mountain road.</div></div></div>
+            </div>
+        </div>
+        <hr>
+        <p style="font-size: 30px; font-weight: bold;"> 1024 &times; 768</p>
+        <div class="container">
+            <div class="div-item-1024-768">
+                <div class='card card-1' >
+                    <div class='card-image'>
+                        <video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\1024_768\prompt_31_1024.mp4' type='video/mp4'></video>
+                    </div>
+                    <div class='card-content'>
+                        <div>A monkey is playing bass guitar, stage background.</div>
+                    </div>
+                </div> 
+            </div>
+            <div class="div-item-1024-768">
+                <div class='card card-1' >
+                    <div class='card-image'>
+                        <video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\1024_768\prompt_51_1024.mp4' type='video/mp4'></video>
+                    </div>
+                    <div class='card-content'>
+                        <div>Aerial view of a hiker man standing on a mountain peak.</div>
+                    </div>
+                </div> 
+            </div>
+            <div class="div-item-1024-768">
+                <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\1024_768\prompt_61_22.mp4' type='video/mp4'></video></div><div class='card-content'><div>New York Skyline with 'Hello World' written with fireworks on the sky.</div></div></div>
+            </div>
+            <div class="div-item-1024-768">
+                <div class='card card-1' ><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\1024_768\prompt_70_36311.mp4' type='video/mp4'></video></div><div class='card-content'><div>Teddy bear surfer rides the wave in the tropics.</div></div></div>
+            </div>
+        </div>
+        <hr>
+        <p style="font-size: 30px; font-weight: bold;"> 768 &times; 1024</p>
+        <div class="container">
+            <div class="div-item-768-1024">
+                <div class='card card-1' >
+                    <div class='card-image'>
+                        <video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\768_1024\prompt_2_1024.mp4' type='video/mp4'></video>
+                    </div>
+                    <div class='card-content'>
+                        <div>A bear wearing sunglasses and hosting a talk show.</div>
+                    </div>
+                </div> 
+            </div>
+            <div class="div-item-768-1024">
+                <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\768_1024\prompt_11_1024.mp4' type='video/mp4'></video></div><div class='card-content'><div>A photo of a Corgi dog riding a bike in Times Square. It is wearing sunglasses and a beach hat.</div></div></div>
+            </div>
+            <div class="div-item-768-1024">
+                <div class='card card-1' ><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\768_1024\prompt_47_22.mp4' type='video/mp4'></video></div><div class='card-content'><div>Impressionist style, a yellow rubber duck floating on the wave on the sunset</div></div></div>
+            </div>
+        </div>
+        <hr>
+        <p style="font-size: 30px; font-weight: bold;"> 1024 &times; 1024</p>
+        <div class="container">   
+            <div class="div-item-1024-1024">
+                <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\1024_1024\prompt_10_22.mp4' type='video/mp4'></video></div><div class='card-content'><div>A cat wearing sunglasses and working as a lifeguard at a pool.</div></div></div>
+            </div>
+            <div class="div-item-1024-1024">
+                <div class='card card-1' ><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\1024_1024\prompt_11_22.mp4' type='video/mp4'></video></div><div class='card-content'><div>A confused grizzly bear in calculus class.</div></div></div>
+            </div>
+            <div class="div-item-1024-1024">
+                <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\multipe_res\1024_1024\prompt_16_22.mp4' type='video/mp4'></video></div><div class='card-content'><div>A dog wearing virtual reality goggles in sunset, 4k, high resolution.</div></div></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="columns is-centered has-text-centered">
+      <div class="container is-max-maxwidth">
+          <div style="font-family:'Acme';color:#595959;font-weight: bold;font-size: 40px;">
+            Diversified Customized Generation
+          </div>
+      </div>
+    </div>
+    <hr>
+    <div style="text-align: center;">
+      <p style="font-size: 30px; font-weight: bold;"> Realcartoon3d</p>
+      <div class="container">
+          <div class="div-item">
+              <div class='card card-1' >
+                  <div class='card-image'>
+                      <video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\realcartoon\prompt_2_22.mp4' type='video/mp4'></video>
+                  </div>
+                  <div class='card-content'>
+                      <div>Ultra detailed background ((Cherry Blossoms)),(22 years old Spanish woman),medium breast,wearing flowing dress,golden brown flowing hair glamour,(green eyes),beautiful face,((white mists:1.4)),(pink dust:1.2),mysterious,mysteries of universe,yellow lightnings,volumetric lightnings,dark and blurry background.</div>
+                  </div>
+              </div> 
+          </div>
+          <div class="div-item">
+              <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\realcartoon\prompt_3_155.mp4' type='video/mp4'></video></div><div class='card-content'><div>Girl with really wild hair,mane,multicolored hairlighting,(from front:0.6).</div></div></div>
+          </div>
+          <div class="div-item">
+              <div class='card card-1' ><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\realcartoon\prompt_6_155.mp4' type='video/mp4'></video></div><div class='card-content'><div>Technological sense,best quality, masterpiece, illustration, wallpaper, official art, Amazing, finely detail, an extremely delicate and beautiful,extremely detailed,highly detailed,sharp focus,rich background,blurry background,(real person,photograph).</div></div></div>
+          </div>
+          <div class="div-item">
+              <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\realcartoon\prompt_8_155.mp4' type='video/mp4'></video></div><div class='card-content'><div>Firefox,award winning illustration.</div></div></div>
+          </div>
+      </div>
+      <hr>
+      <p style="font-size: 30px; font-weight: bold;"> Toonyou</p>
+      <div class="container">
+        <div class="div-item">
+            <div class='card card-1' >
+                <div class='card-image'>
+                    <video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\toonyou\prompt_1_36311.mp4' type='video/mp4'></video>
+                </div>
+                <div class='card-content'>
+                    <div>1girl, collarbone, wavy hair, looking at viewer, blurry foreground, upper body, necklace, contemporary, plain pants, ((intricate, print, pattern)), ponytail, freckles, red hair, dappled sunlight, smile, happy,</div>
+                </div>
+            </div> 
+        </div>
+        <div class="div-item">
+            <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\toonyou\prompt_3_155.mp4' type='video/mp4'></video></div><div class='card-content'><div>1girl, tube top, sideboob, wind, strapless, dolphin shorts, upper body, french braid, looking at viewer, wet, ((solo focus, intricate, paw pose, splashing, in water)), smile, pubis, beach, wide hips, blonde, medium breasts, blurry, mountainous horizon, cloudy sky.</div></div></div>
+        </div>
+        <div class="div-item">
+            <div class='card card-1' ><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\toonyou\prompt_4_36311.mp4' type='video/mp4'></video></div><div class='card-content'><div>1girl, (curly hair), short hair, cafe, barista, dark skin, happy, looking at viewer, hairband, waist apron, earrings, upper body, ((intricate, print)).</div></div></div>
+        </div>
+        <div class="div-item">
+            <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\toonyou\prompt_8_22.mp4' type='video/mp4'></video></div><div class='card-content'><div>1boy, jacket, beard, walking, beanie, sunglasses, ((from below, looking up, fisheye)), upper body, wasteland, sunset, solo focus, cloudy sky, backpack, hands in pockets.</div></div></div>
+        </div>
+      </div>
+      <hr>
+      <p style="font-size: 30px; font-weight: bold;"> PixarsRendman</p>
+      <div class="container">
+        <div class="div-item">
+            <div class='card card-1' >
+                <div class='card-image'>
+                    <video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\pixarsRend\prompt_2_1024.mp4' type='video/mp4'></video>
+                </div>
+                <div class='card-content'>
+                    <p>A woman wearing denim jacket and cowboy hat</p>
+                </div>
+            </div> 
+        </div>
+        <div class="div-item">
+            <div class='card card-1'>
+                <div class='card-image'>
+                    <video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\pixarsRend\prompt_4_36311.mp4'type='video/mp4'></video>
+                </div>
+                <div class='card-content'>
+                    <div>A happy dog running in a meadow at dusk</div></div></div>
+        </div>
+        <div class="div-item">
+            <div class='card card-1' ><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\pixarsRend\prompt_5_1024.mp4' type='video/mp4'></video></div><div class='card-content'><div>A curious cat perching itself in the front of a windowsill</div></div></div>
+        </div>
+        <div class="div-item">
+            <div class='card card-1'><div class='card-image'><video class='lazy' controls autoplay loop muted width='100%'><source data-src='MagicStory_files\different_custom\pixarsRend\prompt_8_22.mp4' type='video/mp4'></video></div><div class='card-content'><div>Astronaut walking on the surface of the moon</div></div></div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="hero">
+    <div class="hero-body-subtitle"  style="display: block">
+        <div class="columns is-centered has-text-centered">
+            <div class="container is-max-maxwidth">
+                <div style="font-family:'Acme';color:#595959;font-weight: bold; font-size: 40px;">
+                    Motion Control
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="container_motion">
+            <div class="rotated-text-container">
+                <span style="font-size: 20px">Motion score = 0.5</span> 
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_49\0.5.mp4' type='video/mp4'></video>
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_91\0.5.mp4' type='video/mp4'></video>
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_105\0.5.mp4' type='video/mp4'></video>
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_63\0.5.mp4' type='video/mp4'></video>
+             </div>
+            </div>
+            <hr>
+        <div class="container_motion">
+            <div class="rotated-text-container">
+                <span style="font-size: 20px">Motion score = 2.0</span> 
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_49\2.0.mp4' type='video/mp4'></video>
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_91\2.0.mp4' type='video/mp4'></video>
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_105\2.0.mp4' type='video/mp4'></video>
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_63\2.0.mp4' type='video/mp4'></video>
+            </div>
+        </div>
+        <hr>
+        <div class="container_motion">
+            <div class="rotated-text-container">
+                <span style="font-size: 20px">Motion score = 3.0</span> 
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_49\3.0.mp4' type='video/mp4'></video>
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_91\3.0.mp4' type='video/mp4'></video>
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_105\3.0.mp4' type='video/mp4'></video>
+            </div>
+            <div class="video-container"> 
+                <video class='lazy' controls autoplay loop muted width='15%'><source data-src='MagicStory_files\motion_cases\prompt_63\3.0.mp4' type='video/mp4'></video>
+        </div>
+    </div>
+</section>
+    
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{Feng_Ma_Wang_Cheng_Liang_Leng_Yin_2024,
+        title={FancyVideo: Towards Dynamic and Consistent
+            Video Generation via Cross-frame Textual Guidance}, 
+        author={Feng Jiasong and Ma Ao and Wang Jing and Cheng Bo and Liang Xiaodan and Leng Dawei and Yin Yuhui},
+        year={2024},
+        journal={Arxiv},
+        month={Aug.} 
+  }</code></pre>
+    </div>
+  </section>
+    
+<footer class="footer" style="padding: 2em;">
+    <p style="text-align: center">
+        <strong>Style from Bulma<a href="https://jgthms.com/"></a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+    </p>
+</footer>
+
+</body>
+<script>
+var videos = document.getElementsByClassName("clickplay");
+for (var i = 0; i < videos.length; i++) {
+  videos[i].addEventListener("click", function() {
+    this.play();
+  });
+  videos[i].addEventListener("ended", function() {
+    this.pause();
+    this.currentTime = 0;
+  });
+}
+</script>
