@@ -37,30 +37,17 @@ pip install -r requirements.txt
 
 ### 2. Prepare the models
 ```
-mkdir resources/models
+mkdir resources
 
-# fancyvideo-ckpts
-wget -O resources/models/fancyvideo_ckpts.zip "https://drive.google.com/uc?export=download&id=1m4UqKVQ3POI5ei1A9yppHX_H--8PKMtn"
-unzip resources/models/fancyvideo_ckpts.zip
+git lfs install
+git clone https://huggingface.co/BirdL/FancyVideo
 
-# cv-vae
-wget -O resources/models/CV-VAE.zip "https://drive.google.com/uc?export=download&id=1Xal1fxVbVWf0jjiPK5gb_1-lOh0w8G_r"
-unzip resources/models/CV-VAE.zip
-
-# res-adapter
-wget -O resources/models/res-adapter.zip "https://drive.google.com/uc?export=download&id=18EawVd1HJtrQds703sLqoYZtLfbUgLm4"
-unzip resources/models/res-adapter.zip
-
-# longclip
-wget -O resources/models/LongCLIP-L.zip "https://drive.google.com/uc?export=download&id=1-DDPcbAbmGZJPHsdl1PgFMVtxmOnUtc7"
-unzip resources/models/LongCLIP-L.zip
-
+# Optional
 # sdv1.5-base-models(you can also donwload from civitai.com)
 wget -O resources/models/sd_v1-5_base_models.zip "https://drive.google.com/uc?export=download&id=1pxrAVT8OQKyyyW2WgImqEQrectbIpkBH"
 unzip resources/models/sd_v1-5_base_models.zip
 
 # stable-diffusion-v1-5
-git lfs install
 git clone https://huggingface.co/runwayml/stable-diffusion-v1-5 resources/models
 ```
 After download models, your resources folder is like:
