@@ -98,8 +98,8 @@ CUDA_VISIBLE_DEVICES=0 PYTHONPATH=./ python scripts/demo.py --config configs/inf
 ## Reference
 - Animatediff: https://github.com/guoyww/AnimateDiff
 - CV-VAE: https://github.com/AILab-CVC/CV-VAE
-- Animatediff: https://github.com/bytedance/res-adapter
-- Animatediff: https://github.com/beichenzbc/Long-CLIP
+- Res-Adapter: https://github.com/bytedance/res-adapter
+- Long-CLIP: https://github.com/beichenzbc/Long-CLIP
 
 
 ## We Are Hiring
