@@ -43,7 +43,7 @@ pip install -r requirements.txt
 # fancyvideo-ckpts & cv-vae & res-adapter & longclip & sdv1.5-base-models
 git lfs install
 git clone https://huggingface.co/qihoo360/FancyVideo
-mv FancyVideo/resouces/models resouces 
+mv FancyVideo/resources/models resources 
 
 
 # stable-diffusion-v1-5
@@ -51,7 +51,7 @@ git clone https://huggingface.co/runwayml/stable-diffusion-v1-5 resources/models
 ```
 After download models, your resources folder is like:
 ```
-📦 resouces/
+📦 resources/
 ├── 📂 models/
 │   └── 📂 fancyvideo_ckpts/
 │   └── 📂 CV-VAE/
