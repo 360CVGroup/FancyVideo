@@ -8,6 +8,9 @@ Jiasong Feng*, Ao Ma*, Jing Wang*, Bo Cheng, Xiaodan Liang, Dawei Leng†, Yuhui
 </br>
 [![arXiv](https://img.shields.io/badge/arXiv-2307.04725-b31b1b.svg)](https://arxiv.org/abs/2408.08189)
 [![Project Page](https://img.shields.io/badge/Project-Website-green)](https://360cvgroup.github.io/FancyVideo/)
+[![weixin](https://img.shields.io/badge/-WeChat@机器之心-000000?logo=wechat&logoColor=07C160)](https://mp.weixin.qq.com/s/_Njlo7D1YogSpr8nK_p_Jg)
+[![ComfyUI](https://img.shields.io/static/v1?label=App&message=ComfyUI&&color=green)](https://github.com/AIFSH/FancyVideo-ComfyUI)
+
 
 Our code builds upon [AnimateDiff](https://github.com/guoyww/AnimateDiff), and we also incorporate insights from [CV-VAE](https://github.com/AILab-CVC/CV-VAE), [Res-Adapter](https://github.com/bytedance/res-adapter), and [Long-CLIP](https://github.com/beichenzbc/Long-CLIP) to enhance our project. We appreciate the open-source contributions of these works.
 
