@@ -20,6 +20,12 @@ Our code builds upon [AnimateDiff](https://github.com/guoyww/AnimateDiff), and w
 - **[2024/08/15]** We released the paper of [FancyVideo](https://arxiv.org/abs/2408.08189).
 
 
+## 🕓 Schedules
+- **[In early October 2024]** We plan to release the training code of FancyVideo.
+- **[In early November 2024]** We plan to release the 125-frame model of FancyVideo.
+- **[Temporary uncertainty]** We plan to release the 16-channel 3D Video VAEs and corresponding model of FancyVideo.
+
+
 ## Quick Demos
 Video demos can be found in the [webpage](https://360cvgroup.github.io/FancyVideo/). Some of them are contributed by the community. You can customize your own videos using the following reasoning code.
 
