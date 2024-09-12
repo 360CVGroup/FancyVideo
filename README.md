@@ -16,7 +16,7 @@ Our code builds upon [AnimateDiff](https://github.com/guoyww/AnimateDiff), and w
 
 
 ## 🔥 News
-- **[2024/09/05]** 🔥🔥 We are thrilled to present our latest research: [Qihoo-T2X](https://github.com/360CVGroup/Qihoo-T2X), a pioneering DiT architecture paradigm designed for Text-to-Any tasks.
+- **[2024/09/05]** 🔥🔥 We are thrilled to present our latest research: [Qihoo-T2X](https://360cvgroup.github.io/Qihoo-T2X/), a pioneering DiT architecture paradigm designed for Text-to-Any tasks.
 - **[2024/08/19]** We initialized this github repository and released the inference code and 61-frame model.
 - **[2024/08/15]** We released the paper of [FancyVideo](https://arxiv.org/abs/2408.08189).
 
