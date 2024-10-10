@@ -16,14 +16,15 @@ Our code builds upon [AnimateDiff](https://github.com/guoyww/AnimateDiff), and w
 
 
 ## 🔥 News
-- **[2024/09/05]** 🔥 We are thrilled to present our latest research: [Qihoo-T2X](https://360cvgroup.github.io/Qihoo-T2X/), a pioneering DiT architecture paradigm designed for Text-to-Any tasks.
+- **[2024/10/10]** 🔥 We released the 125-frame model, along with the video extension model and the video backtracking model, all developed from the 61-frame model. The model has been uploaded to [huggingface](https://huggingface.co/qihoo360/FancyVideo).
+- **[2024/09/05]** We are thrilled to present our latest research: [Qihoo-T2X](https://360cvgroup.github.io/Qihoo-T2X/), a pioneering DiT architecture paradigm designed for Text-to-Any tasks.
 - **[2024/08/19]** We initialized this github repository and released the inference code and 61-frame model.
 - **[2024/08/15]** We released the paper of [FancyVideo](https://arxiv.org/abs/2408.08189).
 
 
 ## 🕓 Schedules
-- **[In early October 2024]** We plan to release the training code of FancyVideo.
-- **[In early November 2024]** We plan to release the 125-frame model of FancyVideo.
+- **[In early October 2024]** We plan to release the 125-frame model of FancyVideo, along with the video extension model and the video backtracking model. [√]
+- **[In early November 2024]** We plan to release the training code of FancyVideo.
 - **[Temporary uncertainty]** We plan to release the 16-channel 3D Video VAEs and corresponding model of FancyVideo.
 
 
@@ -61,6 +62,10 @@ After download models, your resources folder is like:
 📦 resources/
 ├── 📂 models/
 │   └── 📂 fancyvideo_ckpts/
+│       └── 📂 vae_3d_61_frames/
+│       └── 📂 vae_3d_125_frames/
+│       └── 📂 video_extending/
+│       └── 📂 video_backtracking/
 │   └── 📂 CV-VAE/
 │   └── 📂 res-adapter/
 │   └── 📂 LongCLIP-L/
@@ -68,6 +73,7 @@ After download models, your resources folder is like:
 │   └── 📂 stable-diffusion-v1-5/
 ├── 📂 demos/
 │   └── 📂 reference_images/
+│   └── 📂 reference_videos/
 │   └── 📂 test_prompts/
 ```
 
@@ -88,6 +94,21 @@ CUDA_VISIBLE_DEVICES=0 PYTHONPATH=./ python scripts/demo.py --config configs/inf
 
 # use the base model of toonyou
 CUDA_VISIBLE_DEVICES=0 PYTHONPATH=./ python scripts/demo.py --config configs/inference/t2v_toonyou.yaml
+```
+#### 3.3 Image to Video with 125-Frame Model
+Similar to 3.1, section 3.2 can also utilize this model.
+```
+CUDA_VISIBLE_DEVICES=0 PYTHONPATH=./ python scripts/demo.py --config configs/inference/i2v_125_frames.yaml
+```
+#### 3.4 Video Extending
+You can expand your 61 frames of video to 125 frames by increasing the latent space from 16 to 32.
+```
+CUDA_VISIBLE_DEVICES=0 PYTHONPATH=./ python scripts/demo.py --config configs/inference/video_extending.yaml
+```
+#### 3.5 Video Backtracking
+You can downscale your 61 frames of video to 125 frames by adjusting the latent space from 16 to 32.
+```
+CUDA_VISIBLE_DEVICES=0 PYTHONPATH=./ python scripts/demo.py --config configs/inference/video_backtracking.yaml
 ```
 
 

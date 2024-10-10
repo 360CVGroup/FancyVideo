@@ -46,22 +46,31 @@ def main(args):
     output_folder = infer_config.get("output_folder", "")
     if not os.path.exists(output_folder):
         os.makedirs(output_folder, exist_ok=True)
-    
+   
+    print ("infer_mode = ", infer_mode)
     fp = open(prompt_path, "r")
     contents = fp.readlines()
     fp.close()
     for i in range(len(contents)):
         print ("processing {}/{}".format(i+1, len(contents)))
         prompt = contents[i].strip("\n")
-        if infer_mode == "i2v":
-            reference_image_path = "{}/{}.png".format(reference_image_folder, i)
-        else:
-            reference_image_path = ""
         dst_path = "{}/example_{}.mp4".format(output_folder, i)
         print ("prompt = ", prompt)
-        print ("reference_image_path = ", reference_image_path)
         print ("dst_path = ", dst_path)
-        reference_image, video, prompt = infer_pipeline.t2v_process_one_prompt(prompt=prompt, reference_image_path=reference_image_path, seed=seed, video_length=video_length, resolution=resolution, use_noise_scheduler_snr=use_noise_scheduler_snr, fps=cond_fps, motion_score=cond_motion_score,)
+        
+        # for i2v and t2v
+        if infer_mode in ["i2v", "t2v"]:
+            if infer_mode == "i2v":
+                reference_image_path = "{}/{}.png".format(reference_image_folder, i)
+            else:
+                reference_image_path = ""
+            reference_image, video, prompt = infer_pipeline.t2v_process_one_prompt(prompt=prompt, reference_image_path=reference_image_path, seed=seed, video_length=video_length, resolution=resolution, use_noise_scheduler_snr=use_noise_scheduler_snr, fps=cond_fps, motion_score=cond_motion_score,)
+        
+        # for video_extending and video_backtracking
+        else: 
+            reference_video_path = "{}/{}.mp4".format(reference_image_folder, i)
+            video = infer_pipeline.video_expansion_process_one_prompt(infer_mode=infer_mode, prompt=prompt, reference_video_path=reference_video_path, seed=seed, video_length=video_length, resolution=resolution, use_noise_scheduler_snr=use_noise_scheduler_snr, fps=cond_fps, motion_score=cond_motion_score,)
+        
         frame_list = []
         for frame in video:
             frame = img_as_ubyte(frame.cpu().permute(1, 2, 0).float().detach().numpy())

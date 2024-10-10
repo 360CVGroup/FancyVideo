@@ -25,6 +25,7 @@ from fancyvideo.models.long_clip import longclip
 from fancyvideo.models.unet import UNet3DConditionModel
 from fancyvideo.pipelines.pipeline_animation_vae_2d import AnimationPipeline as AnimationPipeline2D
 from fancyvideo.pipelines.pipeline_animation_vae_3d import AnimationPipeline as AnimationPipeline3D
+from decord import VideoReader
 
 
 def processing_reference_image(reference_image, vae, vae_type, device, video_length, resolution):
@@ -367,7 +368,7 @@ class InferPipeline():
         writer.close()
         print ("save {} done".format(dst_path))
 
-    def t2v_process_one_prompt(self, prompt, reference_image_path, seed=None, video_length=16, resolution=(512, 512), use_noise_scheduler_snr=True, only_t2i=False, fps=None, motion_score=None):
+    def t2v_process_one_prompt(self, prompt, reference_image_path, seed=None, video_length=16, resolution=(512, 512), use_noise_scheduler_snr=True, fps=None, motion_score=None):
         generator = torch.Generator(device=self.device)
 
         prompt = prompt + ',' + self.common_positive_prompt
@@ -406,8 +407,6 @@ class InferPipeline():
             reference_image = np.array(Image.open(reference_image_path).convert("RGB"))
         image_tensor, mask_tensor = processing_reference_image(reference_image, self.vae, self.vae_type, self.device, video_length, resolution)
         print ("Generate reference_image done!")
-        if only_t2i:
-            return reference_image, None, prompt
 
         # generate video
         if seed:
@@ -455,6 +454,99 @@ class InferPipeline():
         # post process
         video = sample[0].permute(1, 0, 2, 3)
         print ("Generate video done!")
-        return reference_image, video, prompt
+        return video
 
+    def video_expansion_process_one_prompt(self, infer_mode, prompt, reference_video_path, seed=None, video_length=32, resolution=(768, 768), use_noise_scheduler_snr=True, fps=None, motion_score=None):
+        generator = torch.Generator(device=self.device)
+
+        prompt = prompt + ',' + self.common_positive_prompt
+        print ("positive prompt = ", prompt)
+        print ("negative prompt = ", self.common_negative_prompt)
+
+        if fps is not None:
+            fps = torch.tensor(fps).to(self.device)
+        if motion_score is not None:
+            motion_score = torch.tensor(motion_score).to(self.device)
+        
+        # count latents_lists
+        sample_size = resolution # (height, width)
+        pixel_transforms = transforms.Compose([
+            transforms.Resize(min(sample_size)),
+            transforms.CenterCrop(sample_size),
+            transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5], inplace=True),
+        ])
+        video_reader = VideoReader(reference_video_path)
+        batch_index = [i for i in range(len(video_reader))]
+        pixel_values = torch.from_numpy(video_reader.get_batch(batch_index).asnumpy()).permute(0, 3, 1, 2).contiguous()
+        pixel_values = pixel_values / 255.
+        pixel_values = pixel_transforms(pixel_values)
+        pixel_values = pixel_values.unsqueeze(0) # 扩充维度到 b * f * c * h * w
+        pixel_values = rearrange(pixel_values, "b f c h w -> b c f h w")
+        pixel_values = pixel_values.half().to(self.device) # 默认用fp16计算
+        latents = self.vae.encode(pixel_values).latent_dist
+        latents = latents.sample()
+        latents = latents * 0.18215
+
+        # count image_tensor & mask_tensor
+        if infer_mode == "video_extending": # 视频扩展, latent空间的前16帧作为condition
+            cond_frame_idx = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        else: # 视频回溯, latent空间的后16帧作为condition
+            cond_frame_idx = [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+        bsz, _, _, h, w = latents.shape
+        image_tensor = torch.zeros([bsz, 4, video_length, w, h]).half().to(self.device)
+        mask_tensor = torch.zeros([bsz, 1, video_length, w, h]).half().to(self.device)
+        for frame_idx in cond_frame_idx:
+            if infer_mode == "video_extending":
+                image_tensor[:, :, frame_idx, :, :] = latents[:, :, frame_idx, :, :].half().to(self.device)
+            else:
+                image_tensor[:, :, frame_idx, :, :] = latents[:, :, frame_idx-16, :, :].half().to(self.device)
+            mask_tensor[:, :, frame_idx, :, :] = torch.ones([bsz, 1, h, w]).half().to(self.device)
+
+        # generate video
+        if seed:
+            generator.manual_seed(seed)
+        print ("Generate video ...")
+        if use_noise_scheduler_snr:
+            sample = self.text_to_video_pipeline(
+                prompt = prompt,
+                negative_prompt = self.common_negative_prompt,
+                generator = generator,
+                num_inference_steps = 50,
+                guidance_scale = 7.5,
+                video_length = video_length,
+                height = resolution[0],
+                width = resolution[1],
+                emu_mask = True,
+                image_tensor = image_tensor,
+                mask_tensor = mask_tensor,
+                compute_motion = True,
+                noise_scheduler = self.noise_scheduler_snr,
+                # fps & motion_score
+                fps=fps,
+                motion_score=motion_score,
+            ).videos
+        else:
+            sample = self.text_to_video_pipeline(
+                prompt = prompt,
+                negative_prompt = self.common_negative_prompt,
+                generator = generator,
+                num_inference_steps = 50,
+                guidance_scale = 7.5,
+                video_length = video_length,
+                height = resolution[0],
+                width = resolution[1],
+                emu_mask = True,
+                image_tensor = image_tensor,
+                mask_tensor = mask_tensor,
+                compute_motion = True,
+                noise_scheduler = self.noise_scheduler,
+                # fps & motion_score
+                fps=fps,
+                motion_score=motion_score,
+            ).videos
+        
+        # post process
+        video = sample[0].permute(1, 0, 2, 3)
+        print ("Generate video done!")
+        return video
 

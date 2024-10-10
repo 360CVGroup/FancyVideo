@@ -1,0 +1,26 @@
+model:
+  base_model_type: "realisticVisionV60B1_v51VAE"
+  model_path: "resources/models"
+  text_to_video_mm_path: "resources/models/fancyvideo_ckpts/video_extending/mp_rank_00_model_states.pt"
+  base_model_path: "resources/models/sd_v1-5_base_models/realisticVisionV60B1_v51VAE.safetensors"
+  res_adapter_type: "res_adapter_v2"
+  trained_keys: ["motion_modules.", "conv_in.weight", "fps_embedding.", "motion_embedding."]
+  vae_type: "vae_3d"
+  use_fps_embedding: true
+  use_motion_embedding: true
+  common_positive_prompt: "Best quality, masterpiece, ultra high res, photorealistic, Ultra realistic illustration, hyperrealistic, 8k"
+  common_negative_prompt: "(low quality:1.3), (worst quality:1.3),poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face,Facial blurring,a large crowd, many people,advertising, information, news, watermark, text, username, signature,out of frame, low res, error, cropped, worst quality, low quality, artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck, nsfw, breast, naked, eroticism"
+
+inference:
+  infer_mode: "video_extending"
+  resolution: [768, 768]
+  video_length: 32
+  output_fps: 25
+  cond_fps: 25
+  cond_motion_score: 3.0
+  use_noise_scheduler_snr: true
+  seed: 22
+  prompt_path: "resources/demos/test_prompts/test_i2v_prompt.txt"
+  reference_image_folder: "resources/demos/reference_videos/768x768"
+  output_folder: "resources/demos/samples/video_extending/realisticVisionV60B1_v51VAE/768x768"
+
