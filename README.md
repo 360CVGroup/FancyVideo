@@ -16,14 +16,14 @@ Our code builds upon [AnimateDiff](https://github.com/guoyww/AnimateDiff), and w
 
 
 ## 🔥 News
-- **[2024/10/10]** 🔥 We released the 125-frame model, along with the video extension model and the video backtracking model, all developed from the 61-frame model. The model has been uploaded to [huggingface](https://huggingface.co/qihoo360/FancyVideo).
+- **[2024/10/10]** 🔥 We released the 125-frame model, along with the video extending model and the video backtracking model, all developed from the 61-frame model. The model has been uploaded to [huggingface](https://huggingface.co/qihoo360/FancyVideo).
 - **[2024/09/05]** We are thrilled to present our latest research: [Qihoo-T2X](https://360cvgroup.github.io/Qihoo-T2X/), a pioneering DiT architecture paradigm designed for Text-to-Any tasks.
 - **[2024/08/19]** We initialized this github repository and released the inference code and 61-frame model.
 - **[2024/08/15]** We released the paper of [FancyVideo](https://arxiv.org/abs/2408.08189).
 
 
 ## 🕓 Schedules
-- **[In early October 2024]** We plan to release the 125-frame model of FancyVideo, along with the video extension model and the video backtracking model. [√]
+- **[In early October 2024]** We plan to release the 125-frame model of FancyVideo, along with the video extending model and the video backtracking model. [√]
 - **[In early November 2024]** We plan to release the training code of FancyVideo.
 - **[Temporary uncertainty]** We plan to release the 16-channel 3D Video VAEs and corresponding model of FancyVideo.
 
