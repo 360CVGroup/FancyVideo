@@ -1,6 +1,6 @@
 # FancyVideo
 
-This repository is the official implementation of [FancyVideo](https://360cvgroup.github.io/FancyVideo/).
+This repository is the official implementation of [FancyVideo](https://360cvgroup.github.io/FancyVideo/). 
 
 **[FancyVideo: Towards Dynamic and Consistent Video Generation via Cross-frame Textual Guidance](https://arxiv.org/abs/2408.08189)** 
 </br>
