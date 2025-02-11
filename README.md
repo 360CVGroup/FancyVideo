@@ -4,7 +4,7 @@ This repository is the official implementation of [FancyVideo](https://360cvgrou
 
 **[FancyVideo: Towards Dynamic and Consistent Video Generation via Cross-frame Textual Guidance](https://arxiv.org/abs/2408.08189)** 
 </br>
-Jiasong Feng*, Ao Ma*, Jing Wang*, Bo Cheng, Xiaodan Liang, Dawei Leng†, Yuhui Yin(*Equal Contribution, ✝Corresponding Author)
+Jiasong Feng*, Ao Ma*†, Jing Wang*, Bo Cheng, Xiaodan Liang, Dawei Leng‡, Yuhui Yin(*Equal Contribution, †Project Lead, ‡Corresponding Authors)
 </br>
 [![arXiv](https://img.shields.io/badge/arXiv-2307.04725-b31b1b.svg)](https://arxiv.org/abs/2408.08189)
 [![Project Page](https://img.shields.io/badge/Project-Website-green)](https://360cvgroup.github.io/FancyVideo/)
