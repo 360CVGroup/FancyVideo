@@ -6,7 +6,7 @@ This repository is the official implementation of [FancyVideo](https://360cvgrou
 </br>
 Jiasong Feng*, Ao Ma*†, Jing Wang*, Bo Cheng, Xiaodan Liang, Dawei Leng‡, Yuhui Yin(*Equal Contribution, †Project Lead, ‡Corresponding Authors)
 </br>
-[![arXiv](https://img.shields.io/badge/arXiv-2307.04725-b31b1b.svg)](https://arxiv.org/abs/2408.08189)
+[![arXiv](https://img.shields.io/badge/arXiv-2408.08189-b31b1b.svg)](https://arxiv.org/abs/2408.08189)
 [![Project Page](https://img.shields.io/badge/Project-Website-green)](https://360cvgroup.github.io/FancyVideo/)
 [![weixin](https://img.shields.io/badge/-WeChat@机器之心-000000?logo=wechat&logoColor=07C160)](https://mp.weixin.qq.com/s/_Njlo7D1YogSpr8nK_p_Jg)
 [![ComfyUI](https://img.shields.io/static/v1?label=App&message=ComfyUI&&color=green)](https://github.com/AIFSH/FancyVideo-ComfyUI)
