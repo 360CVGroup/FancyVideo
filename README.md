@@ -119,10 +119,6 @@ CUDA_VISIBLE_DEVICES=0 PYTHONPATH=./ python scripts/demo.py --config configs/inf
 - Long-CLIP: https://github.com/beichenzbc/Long-CLIP
 
 
-## We Are Hiring
-We are seeking academic interns in the AIGC field. If interested, please send your resume to [maao@360.cn](mailto:maao@360.cn).
-
-
 ## BibTeX
 ```
 @misc{feng2024fancyvideodynamicconsistentvideo,
